@@ -18,15 +18,16 @@
                 console.log('slaveOpenThisUrl', slave, url, mode);
                 if (mode != "iFrame") {
                     $("#SlaveLink").attr("target", mode).attr("href", url).text(url);
-                    setTimeout(function() {
-                        $("#SlaveLink").click();
-                    }, 100);                    
-                    //window.open(url, url, "", false);
+                    
+                    window.open(url, mode);
                     //$("#Frame").
                 } else {
+                    $("#SlaveLink").attr("target", "_blank").attr("href", url).text(url);
                     $("#Frame").attr("src", url);
 
                 }
+
+                $("#Frame").focus();
             });
         });
     </script>

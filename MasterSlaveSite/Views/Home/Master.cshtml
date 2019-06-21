@@ -9,29 +9,30 @@
 
 @using (Html.BeginForm())
 {
-    <div>
-        <label for="Slave" class="col-lg-4">To Slave:</label>
-        <input type="text" name="Slave" id="Slave" class="col-lg-8" />
+<div class="panel">
+    <div class="panel-body">
+        <label for="Slave" class="col-lg-2">To Slave:</label>
+        <input type="text" name="Slave" id="Slave" class="col-lg-10 " />
     </div>
 
-    <div>
+    <div class="panel-body">
         <label for="Url" class="col-lg-2">Url:</label>
         <input type="text" name="Url" id="Url" class="col-lg-10" />
     </div>
 
-    <div>
-        <select id="Mode">
+    <div class="panel-body">
+        <select id="Mode" class="custom-select-lg">
             <option value="_blank" selected="selected">New page</option>
             <option value="_self">Replace page</option>
             <option value="iFrame">In Frame</option>
         </select>
     </div>
 
-    <div>
+    <div class="panel-body">
         <input type="button" name="Go" id="Go" value="Go" />
 
     </div>
-
+    </div>
 
     @section scripts
 {
