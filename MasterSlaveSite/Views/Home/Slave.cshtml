@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Slave";
+}
+
+<h2>Slave</h2>
+
+<h4>This page slave code is: <strong>@ViewBag.SlaveCode</strong></h4>
+
+<iframe id="Frame" src="about:blank" class="col-lg-12" style="height: 100%"></iframe>
+<a href="about:blank" id="SlaveLink" target="_blank"></a>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.signalR.masterSlaveHub.on('slaveOpenThisUrl', function (slave, url, mode) {
+                console.log('slaveOpenThisUrl', slave, url, mode);
+                if (mode != "iFrame") {
+                    $("#SlaveLink").attr("target", mode).attr("href", url).text(url);
+                    setTimeout(function() {
+                        $("#SlaveLink").click();
+                    }, 100);                    
+                    //window.open(url, url, "", false);
+                    //$("#Frame").
+                } else {
+                    $("#Frame").attr("src", url);
+
+                }
+            });
+        });
+    </script>
+}
